@@ -1,3 +1,5 @@
+# Things You Should Get Done on Your New Server
+
 1. *Change the root password from the default that you got from Digital Ocean.*
 
 WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. The root user has all priveleges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine
