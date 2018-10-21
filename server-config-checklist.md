@@ -1,6 +1,6 @@
 # Things You Should Get Done on Your New Server
 
-1. *Change the root password from the default that you got from Digital Ocean.*
+1. *Digital Ocean: Change the root password from the default that you got from.*
 
    *AWS EC2/Lightsail: Root login disabled by default.*
 
