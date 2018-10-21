@@ -1,14 +1,16 @@
 # Things You Should Get Done on Your New Server
 
-1. *Digital Ocean: Change the root password from the default that you got from.*
+1. *Digital Ocean: Change the root password from the default that you got from DO.*
 
    *AWS EC2/Lightsail: Root login disabled by default.*
 
 WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. The root user has all priveleges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine
 
-2. *Create a user account for yourself.*
+2. *DO & AWS: Create a user account for yourself.*
 
 WHY: Generally, you want to log in as a normal user. Because the root user can do anything, it's very dangerous to login as root... if you mistype one little command you could potentially destroy your whole system. Make a good strong password and don't lose it!
+
+Although by default you don't login as 'root' on AWS, and thus are not susceptible to the issues stated above, you are set up as a default user depending on the distro you choose during the instance creation process (Example: Ubuntu distro = 'ubuntu' as username). It's a worthwhile experience to create your own user account with a more meaningful username. (f.y.i. It's much simpler to create a new user account than to change the default username.)
 
 3. *Add your user new account to the `sudo` group*
 
