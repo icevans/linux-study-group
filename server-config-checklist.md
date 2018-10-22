@@ -33,6 +33,7 @@ WHY: Now that we have it working, we want to disable password authentication, si
 *Steps for this:* Open the `sshd_config` file in a text editor by typing: `sudo nano /etc/ssh/sshd_config`. Configuration files live in the `/etc` directory (see chapter 3 of _The Linux Command Line_), and we're going to edit the config file for the `sshd` program: this program runs in the background on your server and listens for requests from other computers trying to connect to your server over ssh. We have to use `sudo` because this file is owned by the `root` user (see chapter 5 of _The Linux Command Line_ to learn about users and file ownership/permissions). In this file, find the line that says `PasswordAuthentication yes` and change the `yes` to `no`. Find the line that says `PermitRootLogin yes` and change the `yes` to `no`. Press `ctrl-o` to save, and press `ctrl-x` to quit the editor.
 
 6. *Digital Ocean & AWS: New_user, `.ssh` directory and `authorized_keys` file setup on your server:*
+
 WHY: You've been able to set up your server and add yourself as a non-root user. Now it's time to allow access to users that you as the system administrator wish to grant access to. The process is very similar to the steps you took to set up your own user account, with a few tweaks.
 
 *Steps for new_user setup:*
