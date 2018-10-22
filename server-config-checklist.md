@@ -1,22 +1,32 @@
 # Things You Should Get Done on Your New Server
 
-1. *Change the root password from the default that you got from Digital Ocean.*
+1. *Digital Ocean: Change the root password from the default that you got from Digital Ocean.*
 
-WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. The root user has all priveleges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine
+   *AWS Lightsail: Root login is disabled by default and this step is unnecessary.*
 
-2. *Create a user account for yourself.*
+WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. (The root user has all priveleges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine.
+
+2. *Digital Ocean & AWS: Create a user account for yourself.*
 
 WHY: Generally, you want to log in as a normal user. Because the root user can do anything, it's very dangerous to login as root... if you mistype one little command you could potentially destroy your whole system. Make a good strong password and don't lose it!
 
-3. *Add your user new account to the `sudo` group*
+AWS WHY: Although by default you don't login as 'root' on AWS, and thus are not susceptible to the issues stated above, you are set up as a default user depending on the distro you choose during the instance creation process (Example: Ubuntu distro = 'ubuntu' as username). It's a worthwhile experience to create your own user account with a more meaningful username. (f.y.i. It's much simpler to create a new user account than to change the default username.)
+
+3. *Digital Ocean & AWS: Add your user new account to the `sudo` group*
 
 WHY: You won't be logging in as root anymore, but it's your machine and you'll need root privileges to edit certain system files or run certain commands. Adding yourself to the `sudo` group means that you can put `sudo` in front of a command to run that command with root privileges... see Chapter 5 of The Linux Command Line for details. You have to be logged in as the root user in order to do this) You use the `usermod -a -G sudo your_username` command for this... the `-a` option says you want to add something to a user account, and the `-G` option says it's a group you're adding. You'll need to be logged in as `root` to accomplish this. You can verify that you've succeeded by logging into your account and trying to run a command with `sudo`, e.g. `sudo ls /root`, and also by typing `groups` which list all the groups your user account belongs to. [More information about `usermod` and groups.](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
 
-4. *Generate Public Keys, Configure Public Key Authentication for Your User* 
+AWS WHY: The default user account will already be set up as part of the `sudo` group, but if you create a new user as recommended in Step 2, you will need to add the new user to the `sudo` group.
+
+4. *Digital Ocean & AWS: Generate Public Keys, Configure Public Key Authentication for Your User* 
 
 WHY: Public key authentication is much more secure than password authentication, and also convenient because you don't have to type a password when you login. [Decent instructions on how to do this](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server) *Important Note*: If you set a passphrase on your key when you created it, you will get prompted to enter this passphrase when you try to connect to your server. This is still key-based login, the password is just need so your own machine can decrypt your key to use it for login.
 
+AWS WHY: The key gen process detailed in the Digital Ocean link above is universal and works for AWS. After completing key generation, follow the instuctions at: [AWS: How to complete Public Key Authentication](https://hackernoon.com/add-new-users-to-ec2-and-give-ssh-key-access-d2abd084f30c). Begin at the instructions: "Next, we switch the shell session to the new account:", to setup public key authentication for the new user. You will ssh into your server as the default user to complete this step (Example: ssh ubuntu@ip_address). **IMPORTANT** People understandably get confused on this step as to where to do what. Please read both the Digital Ocean and HackerNoon instructions carefully as to what machine, and to what user, to perform what operations!
+
 5. *Disable Password Login to Your Server, Disable Root Login to Your Server (Only After Step and 4!)*: 
+
+   *AWS Lightsail: Follow the steps below, but you should find these abilties already disabled by default.*
 
 WHY: Now that we have it working, we want to disable password authentication, since password authentication is far less secure. Once it's disabled, people can't point password guessing bots at our server and try to break in. We're also explicitly disallowing people from trying to log in as root over ssh. We really really don't want anyone to get root access to our server. This may be overkill if we've already disabled password login and never added any authorized keys for the root user account, but it doesn't hurt to be extra sure, and anyway we should make the config file say exactly what we want.)
 
