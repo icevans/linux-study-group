@@ -44,7 +44,7 @@ WHY: You've been able to set up your server and add yourself as a non-root user.
 - Set the appropriate permissions for the `.ssh` directory: `chmod 700 .ssh` This is setting the permission level so that certain other users on the server can't access this directory. (Check chapter 9 of the assigned reading for further info.)
 - Create the `authorized_keys` file: `cd .ssh`, `touch authorized_keys`.
 - Secure the `authorized_keys` file: `chmod 600 authorized_keys`
-- Copy in the new_users public key from the spreadsheet to the `authorized_keys` file: Open nano: `nano`, copy the new_users public key from the spreadsheet, focus the cursor in `nano`, right-click the mouse, ^o, <enter>, ^x.
+- Copy in the new_users public key from the spreadsheet to the `authorized_keys` file: Open nano: `nano`, copy the new_users public key from the spreadsheet, focus the cursor in `nano`, right-click the mouse, `^o`, `<enter>`, `^x`.
 - Close the new_user shell session: `exit`
 
 The new_user is now able to ssh into your server! `ssh new_user@your_server_ip_address`
