@@ -32,4 +32,21 @@ WHY: Now that we have it working, we want to disable password authentication, si
 
 *Steps for this:* Open the `sshd_config` file in a text editor by typing: `sudo nano /etc/ssh/sshd_config`. Configuration files live in the `/etc` directory (see chapter 3 of _The Linux Command Line_), and we're going to edit the config file for the `sshd` program: this program runs in the background on your server and listens for requests from other computers trying to connect to your server over ssh. We have to use `sudo` because this file is owned by the `root` user (see chapter 5 of _The Linux Command Line_ to learn about users and file ownership/permissions). In this file, find the line that says `PasswordAuthentication yes` and change the `yes` to `no`. Find the line that says `PermitRootLogin yes` and change the `yes` to `no`. Press `ctrl-o` to save, and press `ctrl-x` to quit the editor.
 
-6. **You're All Set!** Now open up _How Linux Works_ and the _The Linux Command Line_ readings and start learning how this stuff works!
+6. *Digital Ocean & AWS: New_user, `.ssh` directory and `authorized_keys` file setup on your server:*
+WHY: You've been able to set up your server and add yourself as a non-root user. Now it's time to allow access to users that you as the system administrator wish to grant access to. The process is very similar to the steps you took to set up your own user account, with a few tweaks.
+
+*Steps for new_user setup:*
+- If you haven't already, connect to your server and go to your home directory. `cd ~`
+- Create a new user: `sudo adduser --disabled-password new_user` (new_user will be the preferred username you obtain from the spreadsheet.) `--disabled-password` is optional and bypasses setting a password for the user at setup. The user will be able to set their own password later.
+- Switch the shell session to the new user: `sudo su new_user` (Remember: new_user = user name from spreadsheet.).
+- Go to the new_user home directory (/home/new_user): `cd ~`
+- Create the `.ssh` directory for the new_user: `mkdir .ssh`
+- Set the appropriate permissions for the `.ssh` directory: `chmod 700 .ssh` This is setting the permission level so that certain other users on the server can't access this directory. (Check chapter 9 of the assigned reading for further info.)
+- Create the `authorized_keys` file: `cd .ssh`, `touch authorized_keys`.
+- Secure the `authorized_keys` file: `chmod 600 authorized_keys`
+- Copy in the new_users public key from the spreadsheet to the `authorized_keys` file: Open nano: `nano`, copy the new_users public key from the spreadsheet, focus the cursor in `nano`, right-click the mouse, ^o, <enter>, ^x.
+- Close the new_user shell session: `exit`
+
+The new_user is now able to ssh into your server! `ssh new_user@your_server_ip_address`
+
+7. **You're All Set!** Now open up _How Linux Works_ and the _The Linux Command Line_ readings and start learning how this stuff works!
