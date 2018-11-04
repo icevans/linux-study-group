@@ -10,9 +10,9 @@
     ```terminal
     $ touch victor_file
     $ ls -la
-    drwxrwxr-x 2 victor victor 4096 Nov  4 03:47 .            # permissions for directory
+    drwxrwxr-x 2 victor victor 4096 Nov  4 03:47 .            // permissions for directory
     drwxr-xr-x 6 victor victor 4096 Nov  4 03:46 ..
-    -rw-rw-r-- 1 victor victor    0 Nov  4 03:47 victor_file  # I'm the owner
+    -rw-rw-r-- 1 victor victor    0 Nov  4 03:47 victor_file  // I'm the owner
     ```
    
     Here are the results for creating a file as another user (ice):
@@ -35,7 +35,7 @@
     $ sudo groupadd linux_study
     [sudo] password for victor:
     $ sudo usermod -a -G linux_study ice
-    # ... repeat for all users you want to add
+    // ... repeat for all users you want to add
     $ grep linux_study /etc/group
     linux_study:x:1009:ice,jvt,dana,andy_h,benh,jstryer,charles,catherine,victor
     ```
@@ -47,26 +47,26 @@
     - Verify this all works using the sudo command as in exercise 2.
    
     ```terminal
-    # create shared directory
+    // create shared directory
     $ cd /usr/local/share
     $ sudo mkdir linux_group_docs
     [sudo] password for victor:
     $ cd linux_group_docs
     $ ls -ld
     drwxr-xr-x 2 root root 4096 Nov  4 05:58 .
-    # change group ownership and permissions
+    // change group ownership and permissions
     $ sudo chown :linux_study /usr/local/share/linux_group_docs
     $ sudo chmod 775 .
     $ ls -ld
     drwxrwxr-x 2 root linux_study 4096 Nov  4 05:58 .
-    # the linux_group_docs is now owned by the linux_study group
-    # members of the linux_study group have read, write, and execute permissions
+    // the linux_group_docs is now owned by the linux_study group
+    // members of the linux_study group have read, write, and execute permissions
     ```
     
     Given the above directory, I tried working on exercise 2 again but this time using the shared directory.
     
     ```terminal
-    # Note: You may need to log in and out for the permission to take effect
+    // Note: You may need to log in and out for the permission to take effect
     $ pwd
     /usr/local/share/linux_group_docs
     $ touch victor_file
@@ -95,11 +95,11 @@
     ```terminal
     $ ls -la /usr/bin/irb
     lrwxrwxrwx 1 root root 8 Feb 15  2014 /usr/bin/irb -> irb1.9.1
-    # return value shows that `irb` is a symbolic link to irb1.9.1 in the current directory
+    // return value shows that `irb` is a symbolic link to irb1.9.1 in the current directory
     $ ls -la /usr/bin/irb1.9.1
     -rwxr-xr-x 1 root root 319 Jun  8 17:06 /usr/bin/irb1.9.1
-    # permission is 755; root, members of root, and world have read and execute permissions
-    # only root has write permission.
+    // permission is 755; root, members of root, and world have read and execute permissions
+    // only root has write permission.
     ```
     
 7. Change the permissions on `irb` to 754. Does the fact that it's a symbolic link change how you go about doing this? What does this do? What impact does it have on your ability to use `irb`? Put back the correct permissions.
@@ -110,10 +110,10 @@
     $ sudo chmod 754 /usr/bin/irb
     $ ls -la /usr/bin/irb
     lrwxrwxrwx 1 root root 8 Feb 15  2014 /usr/bin/irb -> irb1.9.1
-    # recall that All symbolic links have “dummy” permissions.
+    // recall that All symbolic links have “dummy” permissions.
     $ ls -la /usr/bin/irb1.9.1
     -rwxr-xr-- 1 root root 319 Jun  8 17:06 /usr/bin/irb1.9.1
-    # the execute permission is removed from "world"
+    // the execute permission is removed from "world"
     ```
     
     Changing the permission to 754 prevents me (victor) from using the `irb` command since only root and members of root can execute it. 
