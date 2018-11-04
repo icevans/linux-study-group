@@ -23,8 +23,6 @@
     $ sudo -l
     User victor may run the following commands on ubuntu-ls-linux-study-group:
     (ALL : ALL) ALL
-    $ ls -ld
-    
     ```
     
     Going by the results, I think the permission denied is for the creating of the file as the user "ice". I think this is the case because going by the command that I can run as `sudo` (via checking `sudo -l`), I should be allowed to use ALL commands as ALL users and as ALL commnads. (note: `sudo` -l` list the commands you can use as `sudoer`; [this digitalocean article](https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-on-ubuntu-and-centos) gives an idea of how to interpret the result). Also, based on the permissions of the directory only `victor` and user of the `victor` group have write permissions. To test out my idea, I'll go back to this agin after exercise 4 (creating of shared directory)
