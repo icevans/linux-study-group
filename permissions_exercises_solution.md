@@ -80,11 +80,15 @@
     Based on the result, I think this verifies my answer that the owner of the creator of the file is the user.
     
     For bullets two (2) and three (3), I think the permission will be dependent on the default `umask` for each user that created the file or directory. As such, I decided not to puruse implementing those anymore. Chapter 9 of TLCL has a solution but it only lasts until the end of a session.
- 
-5. What does the executable permission mean for a directory?
+
+5. Who is allowed to create, rename, or delete files in the shared directory?
+
+   Those who are allowed create, rename, and delet files are those with 
+
+6. What does the executable permission mean for a directory?
     The executable permission for a directory allows the entering of the directory.
     
-6. What permissions does the `irb` file have? (Hint: you'll have to find where `irb` lives using the info from chapter 3. It may be a symbolic link on your system -- TLCL discusses permissions for symbolic links.)
+7. What permissions does the `irb` file have? (Hint: you'll have to find where `irb` lives using the info from chapter 3. It may be a symbolic link on your system -- TLCL discusses permissions for symbolic links.)
 
     Note: It looks like ruby is not installed by default (at least from my virtual machine).
     
@@ -102,7 +106,7 @@
     // only root has write permission.
     ```
     
-7. Change the permissions on `irb` to 754. Does the fact that it's a symbolic link change how you go about doing this? What does this do? What impact does it have on your ability to use `irb`? Put back the correct permissions.
+8. Change the permissions on `irb` to 754. Does the fact that it's a symbolic link change how you go about doing this? What does this do? What impact does it have on your ability to use `irb`? Put back the correct permissions.
 
     The fact that it's a symbolic link doesn't impact if perform chmod on it.
     
@@ -118,7 +122,7 @@
     
     Changing the permission to 754 prevents me (victor) from using the `irb` command since only root and members of root can execute it. 
     
-8. DON'T DO THE FOLLOWING, IT'S JUST A THOUGHT EXPERIMENT: What would happen if you changed the owner and group of the `sudo` command to your own user accont?
+9. DON'T DO THE FOLLOWING, IT'S JUST A THOUGHT EXPERIMENT: What would happen if you changed the owner and group of the `sudo` command to your own user accont?
     
     I was initially thinking nothing bad will happen since the "world" will have execute permission. It turns out `sudo` must be run as the root user. I don't completely understand this one but the gist is that changing the owner of `sudo` to other than `root` breaks the command. There are lots of horror stories I came across when searching for the impact of changing the owner of `sudo` to other than `root`. I'll probably only explore this again if I get into learning about security, I think.
     
