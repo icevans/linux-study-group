@@ -83,7 +83,12 @@
 
 5. Who is allowed to create, rename, or delete files in the shared directory?
 
-   Those who are allowed create, rename, and delet files are those with 
+   Those who are allowed create, rename, or delete files are those with "write" permissions granted that the "execute" attribute is also set. In the case of the shared directory, root and members of linux_study can create, rename, or delete files in the shared directory.
+
+   ```terminal
+   // permissions for linux_group_docs
+   drwxrwxr-x 2 root   linux_study 4096 Nov  4 06:30 .
+   ```
 
 6. What does the executable permission mean for a directory?
     The executable permission for a directory allows the entering of the directory.
