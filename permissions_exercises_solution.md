@@ -1,8 +1,10 @@
 1. What does `chmod 755` accomplish? Rewrite the same thing using symbolic notation.
+
     `chmod 755` sets the permission of the file owner, the members of the file's group, and world to read and execute. It also make it so that it is only writable by the file's owner. This can be represented in symbolic notation as `chmod a=rw,u+x`
     
 2. When a user creates a new file or directory, who owns it? Verify this using the `sudo` command to create a file as another user on your system. (Note: this command is normally used to run commands as the root user, but can actually be used to run a command as any user on the system. Consult the man page to figure out how to do this.)
-   When a user creates file, it is the user who owns it. I tried the verification step of using the `sudo` command to create a file as another user and this resulted in a permission denied response.
+
+    When a user creates file, it is the user who owns it. I tried the verification step of using the `sudo` command to create a file as another user and this resulted in a permission denied response.
    
     Here are the results for creating a file as me:
     ```terminal
