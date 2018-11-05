@@ -25,7 +25,7 @@
     (ALL : ALL) ALL
     ```
     
-    Going by the results, I think the permission denied is for the creating of the file as the user "ice". I think this is the case because going by the command that I can run as `sudo` (via checking `sudo -l`), I should be allowed to use ALL commands as ALL users and as ALL commnads. (note: `sudo -l` list the commands you can use as `sudoer`; [this digitalocean article](https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-on-ubuntu-and-centos) gives an idea of how to interpret the result). Also, based on the permissions of the directory only `victor` and user of the `victor` group have write permissions. To test out my idea, I'll go back to this agin after exercise 4 (creating of shared directory)
+    Going by the results, I think the permission denied is for the creating of the file as the user "ice". I think this is the case because going by the command that I can run as `sudo` (via checking `sudo -l`), I should be allowed to use ALL commands as ALL users and as ALL groups. (note: `sudo -l` list the commands you can use as `sudoer`; [this digitalocean article](https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-on-ubuntu-and-centos) gives an idea of how to interpret the result). Also, based on the permissions of the directory only `victor` and user of the `victor` group have write permissions. To test out my idea, I'll go back to this agin after exercise 4 (creating of shared directory)
         
 3. Create a group called, say, `linux_study` for all the linux study group members you created (if you didn't create any, creat some accounts now, but no need to worry about setting up SSH keys and all that jazz -- you just need multiple user accounts to work with). Add yourself and all the users you created to this group. (This exercise and the next closely follow the books example of creating a shared music directory.)
 
@@ -77,7 +77,7 @@
     -rw-rw-r-- 1 victor victor         0 Nov  4 06:17 victor_file
     ```
     
-    Based on the result, I think this verifies my answer that the owner of the creator of the file is the user.
+    Based on the result, I think this verifies my answer that the owner of the creator of the file is the user. This also confirms my idea that the permission denied response was earlier was due to not having permissions to create files in the directory I was in. In this shared directory, since ice and I are members of the linux_study group we're able to create the file within the directory.
     
     For bullets two (2) and three (3), I think the permission will be dependent on the default `umask` for each user that created the file or directory. As such, I decided not to puruse implementing those anymore. Chapter 9 of TLCL has a solution but it only lasts until the end of a session.
 
