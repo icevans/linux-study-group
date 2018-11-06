@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+puts '~~~Start reading from stream~~~'
+
+loop do
+  line = gets
+  break if line.nil?
+
+  puts "Read '#{line.chomp}' from stream"
+end
+
+puts '~~~End of stream~~~'
