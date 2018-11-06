@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+old_sync = $stdout.sync
+$stdout.sync = true
+
+10.times do |i|
+  puts i
+  sleep 1
+end
+
+$stdout.sync = old_sync
