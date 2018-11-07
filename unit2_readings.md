@@ -14,3 +14,9 @@ Aside from their convenience is their low overhead: standard input, output, and 
 https://en.wikipedia.org/wiki/Stream_(computing)
 https://en.wikipedia.org/wiki/Standard_streams
 http://ruby-doc.org/core-2.5.3/Kernel.html#method-i-gets
+
+## Exercises
+
+For practice, we will maintain a list of pipeline/redirection/globbing exercises at unit2_exercises.md in this repo. _If you want to earn official participation points for this unit, please add two exercises to this file_. To do this, you will need to fork the official repository, commit and push your new exercises, and then submit a pull request so I can merge your changes into the main repository's master branch.
+
+This "fork and create pull request" workflow is the standard way of contributing to open source software, so this should be a nice, low-pressure way to learn how to do that. Here's [a decent video tutorial](https://www.youtube.com/watch?v=dSl_qnWO104).
