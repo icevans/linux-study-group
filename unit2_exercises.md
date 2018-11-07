@@ -5,3 +5,5 @@
 2. Perform the same command as the previous exercise, but this time, use a Unix pipeline to number the list before sending it to `system_binaries.txt` -- again, this should all be a single command. (Hint: `man nl`)
 
 3. Find out how many commands are saved in your shell history, but do not rely on a full printing-to-screen of the history list. You'll probably want to start the pipeline with `history`. If you aren't familiar with the history library, enter `history` to see its output and/or check out `man history`. (Hint: `wc` may be helpful; you could also try it by restricting the output of `history` and piping that into a utility that outputs only one of the columns.)
+
+4. List only the first two users (first alphabetically) with accounts on your system. You can find a list of users (sorted by userid) at `/etc/passwd`. (Hint: `man head`)
