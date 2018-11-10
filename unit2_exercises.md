@@ -31,25 +31,25 @@
 1. Make a small file directly at the command line using `cat` with no arguments. The first line of your small file should just contain your first name; the rest of the lines are up to you. Then use `grep` to list all the lines in your small file that *do not* contain your first name.
 
     - solution:
-```bash
-# create file
-$ cat > grepTest
-Kurth
-some words by Kurth
-more words
-Kurth
-even more input
-Ha!  # type `Ctl+d` to send typed chars to the program currently reading from the terminal
+    ```bash
+    # create file
+    $ cat > grepTest
+    Kurth
+    some words by Kurth
+    more words
+    Kurth
+    even more input
+    Ha!  # type `Ctl+d` to send typed chars to the program currently reading from the terminal
 
-# `grep` for lines _not_ containing first name
-cat grepTest | grep -v 'Kurth'
-```
+    # `grep` for lines _not_ containing first name
+    cat grepTest | grep -v 'Kurth'
+    ```
 
-1. Enter a command that you know will fail (ex: `$ ls kjfksdfjlskfjl`) and redirect the standard output to the bitbucket (`/dev/null`). You should still see an error message printed to your terminal. Now rerun the failing command and this time redirect the standard error to the bitbucket. Finally, rerun your failing command and redirect both stdout and stderr to the bitbucket with a single command.
+    1. Enter a command that you know will fail (ex: `$ ls kjfksdfjlskfjl`) and redirect the standard output to the bitbucket (`/dev/null`). You should still see an error message printed to your terminal. Now rerun the failing command and this time redirect the standard error to the bitbucket. Finally, rerun your failing command and redirect both stdout and stderr to the bitbucket with a single command.
 
     - solution:
-```bash
-ls foo > /dev/null
-ls foo 2> /dev/null
-ls foo &> /dev/null
-```
+    ```bash
+    ls foo > /dev/null
+    ls foo 2> /dev/null
+    ls foo &> /dev/null
+    ```
