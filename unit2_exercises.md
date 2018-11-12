@@ -15,3 +15,7 @@
 1. Make a small file directly at the command line using `cat` with no arguments. The first line of your small file should just contain your first name; the rest of the lines are up to you. Then use `grep` to list all the lines in your small file that *do not* contain your first name.
 
 1. Enter a command that you know will fail (ex: `$ ls kjfksdfjlskfjl`) and redirect the standard output to the bitbucket (`/dev/null`). You should still see an error message printed to your terminal. Now rerun the failing command and this time redirect the standard error to the bitbucket. Finally, rerun your failing command and redirect both stdout and stderr to the bitbucket with a single command.
+
+1. List all of the users who have logged in to your server. A useful command for this is ​`lastlog​`. Make sure you only list users that have actually logged in.
+
+1. List all of the members in the Linux study group that you created in the exercises in Unit 1. You can find a list of groups at ​`/etc/group​`. Bonus: see if you can print out just the user names of the group members with one command (you should have access to this command if you are running Ubuntu on a Digital Ocean droplet).
