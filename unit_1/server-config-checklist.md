@@ -4,7 +4,7 @@
 
    *AWS Lightsail: Root login is disabled by default and this step is unnecessary.*
 
-WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. (The root user has all priveleges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine.
+WHY: Digital Ocean emailed this password to you in plaintext. Anyone watching network traffic could have seen that and would then know the root password to your machine. This means they could log in as root over SSH. (The root user has all privileges, so they could do anything they wanted to your machine.) Even if you disable password login, if they managed to login as a regular user (maybe one of your users accidentally exposes their private key and a bad actor gets their hands on it) then they have the root password and so could switch to the root account using `su root`. Once again, they would become `root` and so do anything to your machine.
 
 2. *Digital Ocean & AWS: Create a user account for yourself.*
 
@@ -22,11 +22,13 @@ AWS WHY: The default user account will already be set up as part of the `sudo` g
 
 WHY: Public key authentication is much more secure than password authentication, and also convenient because you don't have to type a password when you login. [Decent instructions on how to do this](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server) *Important Note*: If you set a passphrase on your key when you created it, you will get prompted to enter this passphrase when you try to connect to your server. This is still key-based login, the password is just need so your own machine can decrypt your key to use it for login.
 
-AWS WHY: The key gen process detailed in the Digital Ocean link above is universal and works for AWS. After completing key generation, follow the instuctions at: [AWS: How to complete Public Key Authentication](https://hackernoon.com/add-new-users-to-ec2-and-give-ssh-key-access-d2abd084f30c). Begin at the instructions: "Next, we switch the shell session to the new account:", to setup public key authentication for the new user. You will ssh into your server as the default user to complete this step (Example: ssh ubuntu@ip_address). **IMPORTANT** People understandably get confused on this step as to where to do what. Please read both the Digital Ocean and HackerNoon instructions carefully as to what machine, and to what user, to perform what operations!
+
+
+AWS WHY: The key gen process detailed in the Digital Ocean link above is universal and works for AWS. After completing key generation, follow the instructions at: [AWS: How to complete Public Key Authentication](https://hackernoon.com/add-new-users-to-ec2-and-give-ssh-key-access-d2abd084f30c). Begin at the instructions: "Next, we switch the shell session to the new account:", to setup public key authentication for the new user. You will ssh into your server as the default user to complete this step (Example: ssh ubuntu@ip_address). **IMPORTANT** People understandably get confused on this step as to where to do what. Please read both the Digital Ocean and HackerNoon instructions carefully as to what machine, and to what user, to perform what operations!
 
 5. *Disable Password Login to Your Server, Disable Root Login to Your Server (Only After Step and 4!)*: 
 
-   *AWS Lightsail: Follow the steps below, but you should find these abilties already disabled by default.*
+   *AWS Lightsail: Follow the steps below, but you should find these abilities already disabled by default.*
 
 WHY: Now that we have it working, we want to disable password authentication, since password authentication is far less secure. Once it's disabled, people can't point password guessing bots at our server and try to break in. We're also explicitly disallowing people from trying to log in as root over ssh. We really really don't want anyone to get root access to our server. This may be overkill if we've already disabled password login and never added any authorized keys for the root user account, but it doesn't hurt to be extra sure, and anyway we should make the config file say exactly what we want.)
 
@@ -51,3 +53,14 @@ WHY: You've been able to set up your server and add yourself as a non-root user.
 The new_user is now able to ssh into your server! `ssh new_user@your_server_ip_address`
 
 7. **You're All Set!** Now open up _How Linux Works_ and the _The Linux Command Line_ readings and start learning how this stuff works!
+
+### Supplemental Links
+
+Looking for a more [gradual introduction to using Linux?](https://www.digitalocean.com/community/tutorial_series/getting-started-with-linux).
+
+[This Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) addresses steps 1 - 3 & part of 4 above.
+
+Gert van Dijk's blog has information on [creating an 'upgraded' Ed25519 ssh key](https://blog.g3rt.nl/upgrade-your-ssh-keys.html) (as opposed to an RSA key).
+
+[Servers for Hackers](https://serversforhackers.com/s/start-here) offers a clear video tutorial with notes that covers much of the material above.
+
