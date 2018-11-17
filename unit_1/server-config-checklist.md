@@ -56,11 +56,11 @@ The new_user is now able to ssh into your server! `ssh new_user@your_server_ip_a
 
 ### Supplemental Links
 
-Looking for a more [gradual introduction to using Linux?](https://www.digitalocean.com/community/tutorial_series/getting-started-with-linux).
+- Looking for a more [gradual introduction to using Linux?](https://www.digitalocean.com/community/tutorial_series/getting-started-with-linux).
 
-[This Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) addresses steps 1 - 3 & part of 4 above.
+- [This Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) addresses steps 1 - 3 & part of 4 above.
 
-Gert van Dijk's blog has information on [creating an 'upgraded' Ed25519 ssh key](https://blog.g3rt.nl/upgrade-your-ssh-keys.html) (as opposed to an RSA key).
+- Gert van Dijk's blog has information on [creating an 'upgraded' Ed25519 ssh key](https://blog.g3rt.nl/upgrade-your-ssh-keys.html) (as opposed to an RSA key).
 
-[Servers for Hackers](https://serversforhackers.com/s/start-here) offers a clear video tutorial with notes that covers much of the material above.
+- [Servers for Hackers](https://serversforhackers.com/s/start-here) offers a clear video tutorial with notes that covers much of the material above.
 
