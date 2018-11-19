@@ -71,3 +71,15 @@
     - piped to `sed` for better formatting: `cat /etc/group | grep '^linux_study_group' | cut -d ':' -f 4 | sed 's/,/, /g'`
 
     - Bonus solution: `sudo groupmems -g linux_study_group -l`
+
+
+  1. Using one command, write the entire contents of `/bin` to a file named `bin.txt`, then output a filtered list that contains the string 'grub'.
+
+    - solution: `ls /bin | tee bin.txt | grep 'grub'`
+
+  1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://gitbub.com/ridergit/linus-practice-files` .
+  Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
+
+    - solution: `grep -E '[nce]k\.txt$' linux-practice-files-master/* | wc -l`
+
+  
