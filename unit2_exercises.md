@@ -19,3 +19,8 @@
 1. List all of the users who have logged in to your server. A useful command for this is ​`lastlog​`. Make sure you only list users that have actually logged in.
 
 1. List all of the members in the Linux study group that you created in the exercises in Unit 1. You can find a list of groups at ​`/etc/group​`. Bonus: see if you can print out just the user names of the group members with one command (you should have access to this command if you are running Ubuntu on a Digital Ocean droplet).
+
+1. Using one command, write the entire contents of /bin to a file named `bin.txt`, then output a filtered list that contains the string 'grub'. (hint: `man tee`)
+
+1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://github.com/ridergit/linux-practice-files`
+Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
