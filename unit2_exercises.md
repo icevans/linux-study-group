@@ -18,8 +18,6 @@
     - also: `ls -lh /bin /sbin | grep -E '^-.+grep$'`
     - or even: `ls -lh /bin /sbin | grep 'grep$' | grep -v '^l'`
 
-
-
 1. Find out how many commands are saved in your shell history, but do not rely on a full printing-to-screen of the history list. You'll probably want to start the pipeline with `history`. If you aren't familiar with the history library, enter `history` to see its output and/or check out `man history`. (Hint: `wc` may be helpful; you could also try it by restricting the output of `history` and piping that into a utility that outputs only one of the columns.)
 
     - solution: `history | wc -l`
@@ -63,6 +61,7 @@
 
     - solution: `lastlog | grep -v '**Never logged in**'`
     - or: `lastlog | grep -v "**Never logged in**"`
+
         - Note that including multiple words in the pattern will require either single or double quotes to suppress shell's word splitting/argument parsing. Without the quotes the shell will send each word following `-v` to `grep` as a separate argument, so it will only search for the first as a pattern and regard the other two words as arguments referencing the files in which to search.
 
 1. List all of the members in the Linux study group that you created in the exercises in Unit 1. You can find a list of groups at ​`/etc/group​`. Bonus: see if you can print out just the user names of the group members with one command (you should have access to this command if you are running Ubuntu on a Digital Ocean droplet).
@@ -72,14 +71,11 @@
 
     - Bonus solution: `sudo groupmems -g linux_study_group -l`
 
-
-  1. Using one command, write the entire contents of `/bin` to a file named `bin.txt`, then output a filtered list that contains the string 'grub'.
+1. Using one command, write the entire contents of /bin to a file named `bin.txt`, then output a filtered list that contains the string 'grub'. (hint: `man tee`)
 
     - solution: `ls /bin | tee bin.txt | grep 'grub'`
 
-  1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://gitbub.com/ridergit/linus-practice-files` .
-  Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
+1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://github.com/ridergit/linux-practice-files`
+Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
 
     - solution: `grep -E '[nce]k\.txt$' linux-practice-files-master/* | wc -l`
-
-  
