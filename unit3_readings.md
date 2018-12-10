@@ -18,3 +18,7 @@ The next unit will cover a deeper topic: processes and their environments, and w
 - [Bash Reference Manual, 3.5](https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions)
 - [Readline Cheat Sheet](http://readline.kablamo.org/emacs.html)
 - [Wikipedia entry on computer terminals](https://en.wikipedia.org/wiki/Computer_terminal)
+
+## Exercises
+
+Like in unit 2, we have a unit3_exercises.md file. Please participate by forking this repository, adding your own exercises on shell expansion, and then submitting a pull request! We got lots of great exercises for unit 2 this way, and it was fun and instructive working through them.
