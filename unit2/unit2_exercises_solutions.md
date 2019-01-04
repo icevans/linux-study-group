@@ -78,4 +78,21 @@
 1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://github.com/ridergit/linux-practice-files`
 Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
 
-    - solution: `grep -E '[nce]k\.txt$' linux-practice-files-master/* | wc -l`
+     - solution: `grep -E '[nce]k\.txt$' linux-practice-files-master/* | wc -l`
+
+1. Working with the same directory (as problem 12), sort files by time created and output the top 10 to a file.
+
+    - solution: `ls -lt linux-practice-files | head > a_sorted_file.txt`
+1. Sort files by time created, output it to a file, then print the top 10 onto the terminal in long form.
+
+    - solution: `ls -lt linux-practice-files > a_sorted_file.txt | head`
+
+1. Count the number of files that exists in the directory, and count the number of lines that is the file, make sure they are the same (and they should be, as long as you have not manipulated the output).
+    
+    - solution: `ls  ~/linux-practice-files/ | wc -l` counts the number of files in the directory
+    - `wc -l a_sorted_file.txt` counts the number of lines in the outputted file
+
+1. If you came up with the following solution, `ls -t linux-practice-files |head | tee a_sorted_file.txt` for the problem above, count the number of lines in the outputted file versus the solution using the > operator. Is this the same number as the solution using the > operator ? What causes the disprepancy?
+
+    - solution: This is the result of pipe failing due to the `| head` at the end. As soon as `head` finds and displays 10 lines of text, the previous processes will get killed. In the 2nd case, `head` never gets any input, so it doesn't terminate the pipe process early. 
+        - Note that this is not the case with `tail`.
