@@ -24,3 +24,11 @@
 
 1. For the following exercise(s), clone the following repository, which contains empty text files named after animals: `https://github.com/ridergit/linux-practice-files`
 Using two utilities, count the number of files named after animals that end with either 'nk', 'ck', or 'ek' (eg: 'skunk.txt'). There should be five!
+
+1. Working with the same directory (as problem 12), sort files by time created and output the top 10 to a file.
+
+1. Sort files by time created, output it to a file, then print the top 10 onto the terminal in long form.
+
+1. Count the number of files that exists in the directory, and count the number of lines that is the file, make sure they are the same (and they should be, as long as you have not manipulated the output).
+
+1. If you came up with the following solution, `ls -t linux-practice-files |head | tee a_sorted_file.txt` for the problem above, count the number of lines in the outputted file versus the solution using the > operator. Is this the same number as the solution using the > operator ? What causes the disprepancy?
