@@ -4,7 +4,7 @@
 
 1. As above, use brace expansion to create a series of directories with leading zeros from `skip001` to `skip100`, but this time only every 4th number should result in a directory. For example, the first three directories in the series will be `skip001`, `skip005`, and `skip009`. The final directory will be `skip097`.
 
-1. Use brace expansion to print the following to stdout: `test01{} test02{} test03{}`. 
+1. Use brace expansion to print the following to stdout: `test01{01..03} test02{01..03} test03{01..03}`. Hint: How can we _suppress_ expansion?
 
 1. Enter `env` to print a list of environmental variables. Identify a few that interest you and practice parameter expansion by echoing their values to stdout.
 
