@@ -7,3 +7,7 @@
 1. Use brace expansion to print the following to stdout: `test01{} test02{} test03{}`. 
 
 1. Enter `env` to print a list of environmental variables. Identify a few that interest you and practice parameter expansion by echoing their values to stdout.
+
+1. Review `grep` and the just-used `env` by using these two commands to retrieve the same variables/values you played with in the previous exercise.
+
+1. Use command substitution to provide the directory argument in a call to `ls -l`.  For example, say you wanted the details for the directory that houses your `ruby` command, but you don't know the path to that directory, or just as likely, you can't remember whether you are using the system `ruby` or `rbenv`'s.Find the information with a command of the following form: `ls -l <command substitution magic here>`. Hint: `man which`.
